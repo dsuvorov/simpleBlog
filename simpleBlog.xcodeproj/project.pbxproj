@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7221CFF31ED6F3040067FE7F /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7221CFF21ED6F3040067FE7F /* SyncManager.swift */; };
 		7244F7611ED5241300322749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244F7601ED5241300322749 /* AppDelegate.swift */; };
 		7244F7631ED5241300322749 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244F7621ED5241300322749 /* MasterViewController.swift */; };
 		7244F7651ED5241300322749 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244F7641ED5241300322749 /* DetailViewController.swift */; };
 		7244F7681ED5241300322749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7244F7661ED5241300322749 /* Main.storyboard */; };
 		7244F76A1ED5241300322749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7244F7691ED5241300322749 /* Assets.xcassets */; };
 		7244F76D1ED5241300322749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7244F76B1ED5241300322749 /* LaunchScreen.storyboard */; };
+		7244F7991ED5346E00322749 /* simpleBlog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7244F7971ED5346E00322749 /* simpleBlog.xcdatamodeld */; };
+		7244F79B1ED5397100322749 /* MyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244F79A1ED5397100322749 /* MyNetwork.swift */; };
+		7255FAF01ED57EFF003A8752 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7255FAEE1ED57EFF003A8752 /* MyTableViewCell.swift */; };
+		7255FAF11ED57EFF003A8752 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7255FAEF1ED57EFF003A8752 /* MyTableViewCell.xib */; };
+		7255FAF31ED5806A003A8752 /* MyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7255FAF21ED5806A003A8752 /* MyDB.swift */; };
+		72A2B86D1ED5925B00672B0A /* PostRecords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A2B86B1ED5925B00672B0A /* PostRecords+CoreDataClass.swift */; };
+		72A2B86E1ED5925B00672B0A /* PostRecords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A2B86C1ED5925B00672B0A /* PostRecords+CoreDataProperties.swift */; };
+		BC75185E0095A81C5261F773 /* Pods_simpleBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADA51F8A582F2B4E7940AF1 /* Pods_simpleBlog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ADA51F8A582F2B4E7940AF1 /* Pods_simpleBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simpleBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7221CFF21ED6F3040067FE7F /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
 		7244F75D1ED5241200322749 /* simpleBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpleBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7244F7601ED5241300322749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7244F7621ED5241300322749 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +35,15 @@
 		7244F7691ED5241300322749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7244F76C1ED5241300322749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7244F76E1ED5241300322749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7244F7981ED5346E00322749 /* simpleBlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simpleBlog.xcdatamodel; sourceTree = "<group>"; };
+		7244F79A1ED5397100322749 /* MyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNetwork.swift; sourceTree = "<group>"; };
+		7255FAEE1ED57EFF003A8752 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		7255FAEF1ED57EFF003A8752 /* MyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		7255FAF21ED5806A003A8752 /* MyDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDB.swift; sourceTree = "<group>"; };
+		72A2B86B1ED5925B00672B0A /* PostRecords+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostRecords+CoreDataClass.swift"; sourceTree = "<group>"; };
+		72A2B86C1ED5925B00672B0A /* PostRecords+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PostRecords+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		773AB160D5BFE1F27ED570BD /* Pods-simpleBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-simpleBlog/Pods-simpleBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		C1D83873826A132A3080F07E /* Pods-simpleBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleBlog.release.xcconfig"; path = "Pods/Target Support Files/Pods-simpleBlog/Pods-simpleBlog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +51,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC75185E0095A81C5261F773 /* Pods_simpleBlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7221CFF11ED6EE280067FE7F /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7244F79A1ED5397100322749 /* MyNetwork.swift */,
+				7221CFF21ED6F3040067FE7F /* SyncManager.swift */,
+			);
+			name = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		7244F7541ED5241200322749 = {
 			isa = PBXGroup;
 			children = (
 				7244F75F1ED5241200322749 /* simpleBlog */,
 				7244F75E1ED5241200322749 /* Products */,
+				E9E06AE0B5562B81E2742382 /* Pods */,
+				E2AD21605909447CC72F5113 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +89,46 @@
 			isa = PBXGroup;
 			children = (
 				7244F7601ED5241300322749 /* AppDelegate.swift */,
+				7221CFF11ED6EE280067FE7F /* NetworkLayer */,
+				7255FB041ED587AA003A8752 /* DBLayer */,
 				7244F7621ED5241300322749 /* MasterViewController.swift */,
 				7244F7641ED5241300322749 /* DetailViewController.swift */,
+				7255FAEE1ED57EFF003A8752 /* MyTableViewCell.swift */,
+				7255FAEF1ED57EFF003A8752 /* MyTableViewCell.xib */,
 				7244F7661ED5241300322749 /* Main.storyboard */,
 				7244F7691ED5241300322749 /* Assets.xcassets */,
 				7244F76B1ED5241300322749 /* LaunchScreen.storyboard */,
 				7244F76E1ED5241300322749 /* Info.plist */,
 			);
 			path = simpleBlog;
+			sourceTree = "<group>";
+		};
+		7255FB041ED587AA003A8752 /* DBLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7244F7971ED5346E00322749 /* simpleBlog.xcdatamodeld */,
+				72A2B86B1ED5925B00672B0A /* PostRecords+CoreDataClass.swift */,
+				72A2B86C1ED5925B00672B0A /* PostRecords+CoreDataProperties.swift */,
+				7255FAF21ED5806A003A8752 /* MyDB.swift */,
+			);
+			name = DBLayer;
+			sourceTree = "<group>";
+		};
+		E2AD21605909447CC72F5113 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ADA51F8A582F2B4E7940AF1 /* Pods_simpleBlog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9E06AE0B5562B81E2742382 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				773AB160D5BFE1F27ED570BD /* Pods-simpleBlog.debug.xcconfig */,
+				C1D83873826A132A3080F07E /* Pods-simpleBlog.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7244F7711ED5241300322749 /* Build configuration list for PBXNativeTarget "simpleBlog" */;
 			buildPhases = (
+				930AEE5ABD5F6F587CFD1E3E /* [CP] Check Pods Manifest.lock */,
 				7244F7591ED5241200322749 /* Sources */,
 				7244F75A1ED5241200322749 /* Frameworks */,
 				7244F75B1ED5241200322749 /* Resources */,
+				3E23C2BA13E7516E71A74181 /* [CP] Embed Pods Frameworks */,
+				8CBEF48BAC3A3134CC90BD56 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7244F76D1ED5241300322749 /* LaunchScreen.storyboard in Resources */,
+				7255FAF11ED57EFF003A8752 /* MyTableViewCell.xib in Resources */,
 				7244F76A1ED5241300322749 /* Assets.xcassets in Resources */,
 				7244F7681ED5241300322749 /* Main.storyboard in Resources */,
 			);
@@ -135,14 +203,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3E23C2BA13E7516E71A74181 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-simpleBlog/Pods-simpleBlog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CBEF48BAC3A3134CC90BD56 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-simpleBlog/Pods-simpleBlog-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		930AEE5ABD5F6F587CFD1E3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7244F7591ED5241200322749 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7255FAF31ED5806A003A8752 /* MyDB.swift in Sources */,
 				7244F7651ED5241300322749 /* DetailViewController.swift in Sources */,
+				7244F7991ED5346E00322749 /* simpleBlog.xcdatamodeld in Sources */,
+				7244F79B1ED5397100322749 /* MyNetwork.swift in Sources */,
 				7244F7631ED5241300322749 /* MasterViewController.swift in Sources */,
 				7244F7611ED5241300322749 /* AppDelegate.swift in Sources */,
+				7221CFF31ED6F3040067FE7F /* SyncManager.swift in Sources */,
+				72A2B86E1ED5925B00672B0A /* PostRecords+CoreDataProperties.swift in Sources */,
+				72A2B86D1ED5925B00672B0A /* PostRecords+CoreDataClass.swift in Sources */,
+				7255FAF01ED57EFF003A8752 /* MyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +386,9 @@
 		};
 		7244F7721ED5241300322749 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773AB160D5BFE1F27ED570BD /* Pods-simpleBlog.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PJBSW2TRN8;
 				INFOPLIST_FILE = simpleBlog/Info.plist;
@@ -276,7 +401,9 @@
 		};
 		7244F7731ED5241300322749 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1D83873826A132A3080F07E /* Pods-simpleBlog.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PJBSW2TRN8;
 				INFOPLIST_FILE = simpleBlog/Info.plist;
@@ -306,8 +433,22 @@
 				7244F7731ED5241300322749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7244F7971ED5346E00322749 /* simpleBlog.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7244F7981ED5346E00322749 /* simpleBlog.xcdatamodel */,
+			);
+			currentVersion = 7244F7981ED5346E00322749 /* simpleBlog.xcdatamodel */;
+			path = simpleBlog.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7244F7551ED5241200322749 /* Project object */;
 }
