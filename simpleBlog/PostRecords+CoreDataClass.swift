@@ -11,11 +11,11 @@ import CoreData
 
 @objc(PostRecords)
 public class PostRecords: NSManagedObject {
-    convenience init() {
+    convenience init(MOC: NSManagedObjectContext) {
         // Описание сущности
-        let entity = NSEntityDescription.entity(forEntityName: "PostRecords", in: MyDB.sharedInstance.managedObjectContext)
+        let entity = NSEntityDescription.entity(forEntityName: "PostRecords", in: MOC)
         
         // Создание нового объекта
-        self.init(entity: entity!, insertInto: MyDB.sharedInstance.managedObjectContext)
+        self.init(entity: entity!, insertInto: MOC)
     }
 }

@@ -12,4 +12,18 @@ class AddModulePresenter: AddModulePresenterProtocol, AddModuleInteractorOutputP
     var wireFrame: AddModuleWireFrameProtocol?
     
     init() {}
+    
+    func viewHasBeenLoaded() {
+    }
+    
+    func saveBtnPressed() {
+        if view != nil && view!.imageUrlTextField.text != "" && view!.userNameTextField.text != "" && view!.textView.text != "" {
+            let item = AddModuleItem(id: 0, date: view!.datePicker.date, name: view!.userNameTextField.text!, body: view!.textView.text, userPicUrl: view!.imageUrlTextField.text)
+            interactor?.addNewItem(item: item)
+        }
+    }
+    
+    func closeAddInterface() {
+        wireFrame?.closeAddInterface()
+    }
 }

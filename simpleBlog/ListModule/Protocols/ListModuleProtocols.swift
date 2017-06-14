@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ListModuleViewProtocol: class
 {
@@ -12,14 +13,14 @@ protocol ListModuleViewProtocol: class
     * Add here your methods for communication PRESENTER -> VIEW
     */
     func showObjects(objects:[TableViewItem])
+    func startRefreshingActivity()
+    func stopRefreshingActivity()
 }
 
-protocol ListModuleWireFrameProtocol: class
-{
-    static func presentListModuleModule(fromView view: AnyObject)
-    /**
-    * Add here your methods for communication PRESENTER -> WIREFRAME
-    */
+protocol ListModuleWireFrameProtocol: class {
+    func presentListModuleFromWindow(window: UIWindow)
+    func presentAddModule()
+    // methods for communication PRESENTER -> WIREFRAME
 }
 
 protocol ListModulePresenterProtocol: class
@@ -31,7 +32,9 @@ protocol ListModulePresenterProtocol: class
     * Add here your methods for communication VIEW -> PRESENTER
     */
     func viewHasBeenLoaded()
+    func viewWillBeShown()
     func addBtnPressed()
+    func refreshCalled()
 }
 
 protocol ListModuleInteractorOutputProtocol: class
@@ -40,6 +43,8 @@ protocol ListModuleInteractorOutputProtocol: class
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
     func showPosts(objects: [ListModuleItem])
+    func startRefreshingActivity()
+    func stopRefreshingActivity()
 }
 
 protocol ListModuleInteractorInputProtocol: class
@@ -51,6 +56,8 @@ protocol ListModuleInteractorInputProtocol: class
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
     func viewHasBeenLoaded()
+    func viewWillBeShown()
+    func refreshCalled()
 }
 
 protocol ListModuleDataManagerInputProtocol: class
@@ -65,8 +72,8 @@ protocol ListModuleAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func getPosts(result: @escaping([ListModuleItem]?)->())
-    func uploadPost(post: ListModuleItem, success: @escaping(Bool)->())
+    func getPosts(result: @escaping ([ListModuleItem]?)->())
+    func uploadPost(post: ListModuleItem, success: @escaping (Bool)->())
 }
 
 protocol ListModuleLocalDataManagerInputProtocol: class

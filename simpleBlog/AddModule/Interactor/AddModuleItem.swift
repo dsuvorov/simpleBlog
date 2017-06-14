@@ -5,9 +5,4 @@
 
 import Foundation
 
-struct AddModuleItem
-{
-    /**
-    *  Attributes here
-    */
-}
+class AddModuleItem: DataItem {}

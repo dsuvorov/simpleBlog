@@ -4,18 +4,22 @@
 //
 
 import Foundation
+import UIKit
 
-class AddModuleWireFrame: AddModuleWireFrameProtocol
-{
-    class func presentAddModuleModule(fromView view: AnyObject)
-    {
+let AddModuleViewIdentifier = "AddModuleView"
+
+class AddModuleWireFrame: AddModuleWireFrameProtocol {
+    var addPresenter : AddModulePresenter?
+    var presentedViewController : UIViewController?
+    
+    func presentAddInterfaceFromViewController(viewController: UIViewController) {
         // Generating module components
-        var view: AddModuleViewProtocol = AddModuleView()
-        var presenter: protocol<AddModulePresenterProtocol, AddModuleInteractorOutputProtocol> = AddModulePresenter()
-        var interactor: AddModuleInteractorInputProtocol = AddModuleInteractor()
-        var APIDataManager: AddModuleAPIDataManagerInputProtocol = AddModuleAPIDataManager()
-        var localDataManager: AddModuleLocalDataManagerInputProtocol = AddModuleLocalDataManager()
-        var wireFrame: AddModuleWireFrameProtocol = AddModuleWireFrame()
+        let view: AddModuleViewProtocol = AddModuleView()
+        let presenter: AddModulePresenterProtocol & AddModuleInteractorOutputProtocol = AddModulePresenter()
+        let interactor: AddModuleInteractorInputProtocol = AddModuleInteractor()
+        let APIDataManager: AddModuleAPIDataManagerInputProtocol = AddModuleAPIDataManager()
+        let localDataManager: AddModuleLocalDataManagerInputProtocol = AddModuleLocalDataManager()
+        let wireFrame: AddModuleWireFrameProtocol = AddModuleWireFrame()
         
         // Connecting
         view.presenter = presenter
@@ -25,5 +29,27 @@ class AddModuleWireFrame: AddModuleWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        
+        let addView = AddModuleWireFrame.addModuleViewFromStoryboard()
+        addView.presenter = presenter
+        presenter.view = addView
+        
+        viewController.navigationController?.show(addView, sender: nil)
+        presentedViewController = viewController
+    }
+    
+    func closeAddInterface() {
+        presentedViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    class func addModuleViewFromStoryboard() -> AddModuleView {
+        let storyboard = mainStoryboard()
+        let viewController = storyboard.instantiateViewController(withIdentifier: AddModuleViewIdentifier) as! AddModuleView
+        return viewController
+    }
+    
+    class func mainStoryboard() -> UIStoryboard {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return storyboard
     }
 }

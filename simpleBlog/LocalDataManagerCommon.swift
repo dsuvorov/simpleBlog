@@ -1,80 +1,21 @@
 //
-//  MyDB.swift - Singleton working with Core Data
+//  localDataManagerCommon.swift
 //  simpleBlog
 //
-//  Created by Dmitry Suvorov on 24/05/17.
+//  Created by Dmitry Suvorov on 14/06/17.
 //  Copyright © 2017 ip-suvorov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import CoreData
 
-struct postSctruct {
-    var id: Int
-    var date: Date
-    var name: String
-    var body: String?
-    var userPicUrl: String?
-    var isSynched: Bool = false
-    var objectId: NSManagedObjectID?
-
-    init(id: Int, date: Date, name: String, body: String?, userPicUrl: String?) { // initialize with only these props
-        self.id = id
-        self.date = date
-        self.name = name
-        self.body = body
-        self.userPicUrl = userPicUrl
-    }
-}
-
-// MARK: - Singleton
-final class MyDB {
+class LocalDataManagerCommon: NSObject {
     
-    private init() { }
-    static let sharedInstance = MyDB()
-    
-    // gets all posts from DB
-    public func getAllPosts()->([postSctruct]) {
-        return self.getFromDB(predictArray: nil)
-    }
-    
-    // adds a post from server to db
-    public func addPostToDB(post: postSctruct) {
-        var newPost = post
-        newPost.isSynched = true
-        self.addToDB(post: newPost)
-    }
-    
-    // removes all the posts from DB except unsynched (not uploaded)
-    public func removeAllPosts() {
-        let predictArray = ["is_synched == true"]
-        self.deleteFromDB(predictArray: predictArray)
-    }
-    
-    // get all posts to be uploaded from DB
-    public func getAllQueue()->([postSctruct]) {
-        let predictArray = ["is_synched == false"]
-        return self.getFromDB(predictArray: predictArray)
-    }
-    
-    // add a post to queue (to be uploaded)
-    public func addPostToQueue(post: postSctruct) {
-        var newPost = post
-        newPost.id = 0
-        newPost.isSynched = false
-        self.addToDB(post: post)
-    }
-    
-    // removes the post from the queue
-    public func removePostFromQueue(objectId: NSManagedObjectID) {
-        let obj = self.managedObjectContext.object(with: objectId) as! PostRecords
-        obj.is_synched = true
-        self.saveContext()
-    }
-    
+    //////////////////////////////////////////////////////////////////////////////////////
+    // MARK: DB General methods
     // adds a post to db - general
-    private func addToDB(post: postSctruct) {
-        let newPostRec = PostRecords()
+    func addToDB(post: DataItem) {
+        let newPostRec = PostRecords(MOC: managedObjectContext)
         
         newPostRec.id = Int16(post.id)
         newPostRec.name = post.name
@@ -90,7 +31,7 @@ final class MyDB {
     }
     
     // removes from db - general
-    private func deleteFromDB(predictArray: [String]?)->() {
+    func deleteFromDB(predictArray: [String]?)->() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PostRecords")
         if predictArray != nil {
             for pred in predictArray! {
@@ -107,9 +48,9 @@ final class MyDB {
             print(error)
         }
     }
-
+    
     // gets from db - general
-    private func getFromDB(predictArray: [String]?)->([postSctruct]) {
+    func getFromDB(predictArray: [String]?)->([DataItem]) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PostRecords")
         if predictArray != nil {
             for pred in predictArray! {
@@ -121,17 +62,17 @@ final class MyDB {
         let sortID = NSSortDescriptor(key: #keyPath(PostRecords.date), ascending: false)
         fetchRequest.sortDescriptors = [sortSync, sortID]
         
-        var resultArray = [postSctruct]()
+        var resultArray = [DataItem]()
         do {
             let results = try self.managedObjectContext.fetch(fetchRequest)
             for result in results as! [PostRecords] {
-                var post = postSctruct(id: Int(result.id),
-                                       date: result.date!,
-                                       name: result.name!,
-                                       body: result.body,
-                                       userPicUrl: result.user_pic_url)
+                let post = DataItem(id: Int(result.id),
+                                          date: result.date!,
+                                          name: result.name!,
+                                          body: result.body,
+                                          userPicUrl: result.user_pic_url)
                 post.isSynched = result.is_synched
-                post.objectId = result.objectID
+                post.objectIdURI = result.objectID.uriRepresentation()
                 
                 resultArray.append(post)
             }
@@ -174,28 +115,21 @@ final class MyDB {
     
     lazy var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
     
     // MARK: - Core Data Saving support
     func saveContext () {
-        let sQueue = DispatchQueue(label: "ru.ip-suvorov.sync-queue",
-                                   qos: .utility,
-                                   target: nil)
-        sQueue.sync {
-            if self.managedObjectContext.hasChanges {
-                do {
-                    try self.managedObjectContext.save()
-                } catch {
-                    let nserror = error as NSError
-                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                    abort()
-                }
+        if self.managedObjectContext.hasChanges {
+            do {
+                try self.managedObjectContext.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
             }
         }
     }
 }
-
-

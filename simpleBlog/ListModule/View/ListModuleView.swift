@@ -5,15 +5,17 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class ListModuleView: UIViewController, ListModuleViewProtocol, UITableViewDelegate, UITableViewDataSource {
     var presenter: ListModulePresenterProtocol?
     var objects = [TableViewItem]()
+    let tableRefreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
-    override func viewDidLoad() {
+    override func viewDidLoad() {        
         super.viewDidLoad()
-        self.presenter?.viewHasBeenLoaded()
+        presenter?.viewHasBeenLoaded()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "MyTableViewCell", bundle: nil), forCellReuseIdentifier: "cellRecord")
@@ -21,6 +23,25 @@ class ListModuleView: UIViewController, ListModuleViewProtocol, UITableViewDeleg
         // adding button Adding a record
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnPressed(_:)))
         self.navigationItem.rightBarButtonItem = addButton
+
+        // seting up refreshcontrol
+        tableRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        tableRefreshControl.addTarget(self, action: #selector(self.refreshCalled), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(tableRefreshControl)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillBeShown()
+    }
+    
+    func refreshCalled() {
+        presenter?.refreshCalled()
+    }
+    
+    // Add post button pressed
+    @objc func addBtnPressed(_: Any?) {
+        presenter?.addBtnPressed()
     }
     
     func showObjects(objects: [TableViewItem]) {
@@ -28,10 +49,17 @@ class ListModuleView: UIViewController, ListModuleViewProtocol, UITableViewDeleg
         self.tableView.reloadData()
     }
     
-    // Add post button pressed
-    func addBtnPressed(_: Any?) {
-        self.presenter?.addBtnPressed()
+    func startRefreshingActivity() {
+        tableRefreshControl.beginRefreshing()
     }
+    
+    func stopRefreshingActivity() {
+        self.tableRefreshControl.endRefreshing()
+    }
+    
+
+    
+    
     
     // MARK: - Table View
     func numberOfSections(in tableView: UITableView) -> Int {
