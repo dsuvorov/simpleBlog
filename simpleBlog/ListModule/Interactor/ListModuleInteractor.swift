@@ -5,8 +5,7 @@
 
 import Foundation
 
-class ListModuleInteractor: ListModuleInteractorInputProtocol
-{
+class ListModuleInteractor: ListModuleInteractorInputProtocol {
     weak var presenter: ListModuleInteractorOutputProtocol?
     var APIDataManager: ListModuleAPIDataManagerInputProtocol?
     var localDatamanager: ListModuleLocalDataManagerInputProtocol?
@@ -61,6 +60,8 @@ class ListModuleInteractor: ListModuleInteractorInputProtocol
                         }
                     }
                 }
+            } else {
+                self.presenter?.stopRefreshingActivity()
             }
         })
     }

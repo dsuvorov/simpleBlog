@@ -49,6 +49,14 @@ class LocalDataManagerCommon: NSObject {
         }
     }
     
+    func removePostFromQueue(objectIdUri: URL) {
+        if let objectId: NSManagedObjectID = self.persistentStoreCoordinator.managedObjectID(forURIRepresentation: objectIdUri) {
+            let obj = self.managedObjectContext.object(with: objectId) as! PostRecords
+            obj.is_synched = true
+            self.saveContext()
+        }
+    }
+    
     // gets from db - general
     func getFromDB(predictArray: [String]?)->([DataItem]) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PostRecords")

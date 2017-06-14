@@ -37,12 +37,8 @@ class ListModuleLocalDataManager: LocalDataManagerCommon, ListModuleLocalDataMan
     }
     
     // removes the post from the queue
-    func removePostFromQueue(objectIdUri: URL) {
-        if let objectId: NSManagedObjectID = super.persistentStoreCoordinator.managedObjectID(forURIRepresentation: objectIdUri) {
-            let obj = super.managedObjectContext.object(with: objectId) as! PostRecords
-            obj.is_synched = true
-            super.saveContext()
-        }
+    override func removePostFromQueue(objectIdUri: URL) {
+        super.removePostFromQueue(objectIdUri: objectIdUri)
     }
     
     func convertToListItem(from: [DataItem])->([ListModuleItem]) {

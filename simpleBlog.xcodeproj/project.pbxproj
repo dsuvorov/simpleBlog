@@ -10,13 +10,11 @@
 		7200E30C1EF148B000D0FDD8 /* LocalDataManagerCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200E30B1EF148B000D0FDD8 /* LocalDataManagerCommon.swift */; };
 		7200E30F1EF14E0B00D0FDD8 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200E30E1EF14E0B00D0FDD8 /* DataItem.swift */; };
 		7200E3101EF1638600D0FDD8 /* AddModuleLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EFFC511EE67B2500753AEC /* AddModuleLocalDataManager.swift */; };
-		7221CFF31ED6F3040067FE7F /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7221CFF21ED6F3040067FE7F /* SyncManager.swift */; };
 		7244F7611ED5241300322749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244F7601ED5241300322749 /* AppDelegate.swift */; };
 		7244F7681ED5241300322749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7244F7661ED5241300322749 /* Main.storyboard */; };
 		7244F76A1ED5241300322749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7244F7691ED5241300322749 /* Assets.xcassets */; };
 		7244F76D1ED5241300322749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7244F76B1ED5241300322749 /* LaunchScreen.storyboard */; };
 		7244F7991ED5346E00322749 /* simpleBlog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7244F7971ED5346E00322749 /* simpleBlog.xcdatamodeld */; };
-		7244F79B1ED5397100322749 /* MyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244F79A1ED5397100322749 /* MyNetwork.swift */; };
 		724F56711EE79D3C00999540 /* TableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F56701EE79D3C00999540 /* TableViewItem.swift */; };
 		724F56751EE96D3300999540 /* RootWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F56741EE96D3300999540 /* RootWireFrame.swift */; };
 		7255FAF01ED57EFF003A8752 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7255FAEE1ED57EFF003A8752 /* MyTableViewCell.swift */; };
@@ -45,7 +43,6 @@
 		1ADA51F8A582F2B4E7940AF1 /* Pods_simpleBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simpleBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7200E30B1EF148B000D0FDD8 /* LocalDataManagerCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataManagerCommon.swift; sourceTree = "<group>"; };
 		7200E30E1EF14E0B00D0FDD8 /* DataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
-		7221CFF21ED6F3040067FE7F /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
 		7244F75D1ED5241200322749 /* simpleBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpleBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7244F7601ED5241300322749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7244F7671ED5241300322749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,7 +50,6 @@
 		7244F76C1ED5241300322749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7244F76E1ED5241300322749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7244F7981ED5346E00322749 /* simpleBlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simpleBlog.xcdatamodel; sourceTree = "<group>"; };
-		7244F79A1ED5397100322749 /* MyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNetwork.swift; sourceTree = "<group>"; };
 		724F56701EE79D3C00999540 /* TableViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewItem.swift; sourceTree = "<group>"; };
 		724F56741EE96D3300999540 /* RootWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireFrame.swift; sourceTree = "<group>"; };
 		7255FAEE1ED57EFF003A8752 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTableViewCell.swift; path = ../../MyTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,15 +100,6 @@
 			name = DataManagerCommon;
 			sourceTree = "<group>";
 		};
-		7221CFF11ED6EE280067FE7F /* NetworkLayer */ = {
-			isa = PBXGroup;
-			children = (
-				7244F79A1ED5397100322749 /* MyNetwork.swift */,
-				7221CFF21ED6F3040067FE7F /* SyncManager.swift */,
-			);
-			name = NetworkLayer;
-			sourceTree = "<group>";
-		};
 		7244F7541ED5241200322749 = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +126,6 @@
 				7200E30D1EF14B1800D0FDD8 /* DataManagerCommon */,
 				7244F7601ED5241300322749 /* AppDelegate.swift */,
 				724F56741EE96D3300999540 /* RootWireFrame.swift */,
-				7221CFF11ED6EE280067FE7F /* NetworkLayer */,
 				7244F7661ED5241300322749 /* Main.storyboard */,
 				7244F7691ED5241300322749 /* Assets.xcassets */,
 				7244F76B1ED5241300322749 /* LaunchScreen.storyboard */,
@@ -459,7 +445,6 @@
 				7244F7991ED5346E00322749 /* simpleBlog.xcdatamodeld in Sources */,
 				7200E30C1EF148B000D0FDD8 /* LocalDataManagerCommon.swift in Sources */,
 				72EFFC6E1EE67B2500753AEC /* AddModuleAPIDataManager.swift in Sources */,
-				7244F79B1ED5397100322749 /* MyNetwork.swift in Sources */,
 				7200E30F1EF14E0B00D0FDD8 /* DataItem.swift in Sources */,
 				72EFFC741EE67B2500753AEC /* AddModuleView.swift in Sources */,
 				72EFFC751EE67B2500753AEC /* AddModuleWireFrame.swift in Sources */,
@@ -467,7 +452,6 @@
 				72EFFC781EE67B2500753AEC /* ListModuleInteractor.swift in Sources */,
 				72EFFC731EE67B2500753AEC /* AddModuleProtocols.swift in Sources */,
 				7244F7611ED5241300322749 /* AppDelegate.swift in Sources */,
-				7221CFF31ED6F3040067FE7F /* SyncManager.swift in Sources */,
 				72A2B86E1ED5925B00672B0A /* PostRecords+CoreDataProperties.swift in Sources */,
 				72EFFC721EE67B2500753AEC /* AddModulePresenter.swift in Sources */,
 				72EFFC7A1EE67B2500753AEC /* ListModulePresenter.swift in Sources */,

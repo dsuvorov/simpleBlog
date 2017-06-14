@@ -19,12 +19,12 @@ class AddModuleWireFrame: AddModuleWireFrameProtocol {
         let interactor: AddModuleInteractorInputProtocol = AddModuleInteractor()
         let APIDataManager: AddModuleAPIDataManagerInputProtocol = AddModuleAPIDataManager()
         let localDataManager: AddModuleLocalDataManagerInputProtocol = AddModuleLocalDataManager()
-        let wireFrame: AddModuleWireFrameProtocol = AddModuleWireFrame()
+        // let wireFrame: AddModuleWireFrameProtocol = AddModuleWireFrame()
         
         // Connecting
         view.presenter = presenter
         presenter.view = view
-        presenter.wireFrame = wireFrame
+        presenter.wireFrame = self
         presenter.interactor = interactor
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
@@ -39,7 +39,7 @@ class AddModuleWireFrame: AddModuleWireFrameProtocol {
     }
     
     func closeAddInterface() {
-        presentedViewController?.dismiss(animated: true, completion: nil)
+        presentedViewController?.navigationController?.popViewController(animated: true)
     }
     
     class func addModuleViewFromStoryboard() -> AddModuleView {
